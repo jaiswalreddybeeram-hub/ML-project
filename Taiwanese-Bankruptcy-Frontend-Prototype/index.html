@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Bankruptcy Prediction & Financial Heatmaps</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">BP</div>
+        <div>
+          <h2>Bankruptcy AI</h2>
+          <span> Financial Risk Platform</span>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-item active" data-page="dashboard">◈ <span>Dashboard</span></button>
+        <button class="nav-item" data-page="dataset">▦ <span>Dataset (6,819)</span></button>
+        <button class="nav-item" data-page="heatmaps">♨ <span>Correlation Heatmaps</span></button>
+        <button class="nav-item" data-page="analysis">◌ <span>Financial Analysis</span></button>
+        <button class="nav-item" data-page="prediction">⌁ <span>Company Prediction</span></button>
+        <button class="nav-item" data-page="models">◇ <span>ML Models</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="status"><i></i> Dataset Connected</div>
+        <small> Economic Journal (TEJ) • 96 Features</small>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow"> CORPORATE BANKRUPTCY PREDICTION</p>
+          <h1 id="page-title">Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <span class="dataset-pill">● 6,819 Companies Loaded</span>
+          <a href="data/data.csv" download="taiwanese_bankruptcy_data.csv" class="download-mini-btn" title="Download Full Dataset">↓ Dataset CSV</a>
+          <div class="avatar">JR</div>
+        </div>
+      </header>
+
+      <!-- DASHBOARD PAGE -->
+      <section id="dashboard" class="page active-page">
+        <div class="hero">
+          <div>
+            <span class="hero-label">DATASET & RISK ANALYTICS PLATFORM</span>
+            <h2>Corporate Distress<br>& Correlation Heatmap Hub</h2>
+            <p>Comprehensive exploratory analysis, pairwise correlation heatmaps, and empirical prediction models trained on 6,819 Taiwanese companies from the Taiwan Economic Journal (TEJ).</p>
+            <div class="hero-buttons">
+              <button class="primary-btn" onclick="showPage('heatmaps')">Explore Correlation Heatmaps ♨</button>
+              <button class="secondary-btn hero-sec-btn" onclick="showPage('prediction')">Test Company Prediction →</button>
+            </div>
+          </div>
+          <div class="hero-art">
+            <div class="orbit o1"></div><div class="orbit o2"></div><div class="core">EDA</div>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <span>Total Companies</span>
+            <strong>6,819</strong>
+            <small> Economic Journal (1999-2009)</small>
+          </div>
+          <div class="metric">
+            <span>Financial Indicators</span>
+            <strong>95</strong>
+            <small>Continuous numeric ratios (0 missing)</small>
+          </div>
+          <div class="metric">
+            <span>Bankrupt Firms</span>
+            <strong class="text-risk">220</strong>
+            <small>3.23% positive class rate</small>
+          </div>
+          <div class="metric">
+            <span>Healthy / Solvent</span>
+            <strong class="text-safe">6,599</strong>
+            <small>96.77% solvent firms</small>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Class Distribution Card -->
+          <div class="card chart-card">
+            <div class="card-head">
+              <div>
+                <h3>Target Class Imbalance</h3>
+                <p>Severe class imbalance ratio: ~30 to 1 solvent vs. bankrupt</p>
+              </div>
+              <span class="tag">UCI DATASET</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="distributionChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Heatmap Quick Access Card -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Empirical Correlation Heatmaps</h3>
+                <p>Key pairwise statistical associations</p>
+              </div>
+              <span class="tag">NEW</span>
+            </div>
+            <div class="heatmap-feature-preview">
+              <div class="quick-corrs">
+                <div class="corr-item risk">
+                  <span class="corr-name">Debt ratio %</span>
+                  <span class="corr-val">+0.250</span>
+                  <small>Strongest leverage elevator</small>
+                </div>
+                <div class="corr-item risk">
+                  <span class="corr-name">Current Liability / Assets</span>
+                  <span class="corr-val">+0.194</span>
+                  <small>Short-term liquidity pressure</small>
+                </div>
+                <div class="corr-item risk">
+                  <span class="corr-name">Borrowing dependency</span>
+                  <span class="corr-val">+0.177</span>
+                  <small>Excessive credit reliance</small>
+                </div>
+                <div class="corr-item safe">
+                  <span class="corr-name">Net Income to Assets</span>
+                  <span class="corr-val">-0.315</span>
+                  <small>Strongest protective solvency buffer</small>
+                </div>
+                <div class="corr-item safe">
+                  <span class="corr-name">ROA(A) After Tax</span>
+                  <span class="corr-val">-0.283</span>
+                  <small>Operational productivity shield</small>
+                </div>
+                <div class="corr-item safe">
+                  <span class="corr-name">Net worth / Assets</span>
+                  <span class="corr-val">-0.250</span>
+                  <small>Equity capitalization safety</small>
+                </div>
+              </div>
+              <button class="primary-btn full" onclick="showPage('heatmaps')">Launch Interactive Heatmap Explorer →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2 mt-20">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Interactive Platform Features</h3>
+                <p>Everything included in this project</p>
+              </div>
+            </div>
+            <div class="steps">
+              <div><b>01</b><span><b>Full Taiwanese Dataset:</b> 6,819 rows with 95 financial features integrated and downloadable in CSV format.</span></div>
+              <div><b>02</b><span><b>Interactive Correlation Heatmaps:</b> Real Pearson correlation matrices with dynamic hover tooltips, cell crosshairs, multiple palettes (Cool-Warm, Viridis, Emerald-Ruby), and PNG/CSV export.</span></div>
+              <div><b>03</b><span><b>Real Company One-Click Testing:</b> Pre-loaded with actual bankrupt and healthy companies from the dataset to test prediction outcomes instantly.</span></div>
+              <div><b>04</b><span><b>Exploratory Profile Analysis:</b> Comparative Z-score distribution analysis contrasting bankrupt vs. healthy Taiwanese enterprises.</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Dataset Quick Actions</h3>
+                <p>Direct exports and raw data access</p>
+              </div>
+            </div>
+            <div class="dataset-actions-list">
+              <a href="data/data.csv" download="taiwanese_bankruptcy_data.csv" class="action-tile">
+                <span class="tile-icon">📥</span>
+                <div>
+                  <strong>Download Full Dataset (11.4 MB)</strong>
+                  <span>data/data.csv • 6,819 rows × 96 columns</span>
+                </div>
+              </a>
+              <a href="data/correlation_top15.csv" download="taiwan_correlation_top15.csv" class="action-tile">
+                <span class="tile-icon">📊</span>
+                <div>
+                  <strong>Download Correlation Matrix (CSV)</strong>
+                  <span>Top 15 bankruptcy drivers correlation values</span>
+                </div>
+              </a>
+              <a href="assets/heatmap_top15_correlation.png" target="_blank" class="action-tile">
+                <span class="tile-icon">🖼️</span>
+                <div>
+                  <strong>High-Resolution Heatmap Figure (PNG)</strong>
+                  <span>Publication-ready 150 DPI Seaborn graphic</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DATASET PAGE -->
+      <section id="dataset" class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">DATA EXPLORER & REPOSITORY</span>
+            <h2>Taiwanese Bankruptcy Dataset</h2>
+            <p>Collected from the Taiwan Economic Journal (TEJ) between 1999 and 2009 based on corporate business distress regulations.</p>
+          </div>
+          <div class="head-btns">
+            <a href="data/data.csv" download="taiwanese_bankruptcy_data.csv" class="primary-btn">↓ Download Full CSV (11.4 MB)</a>
+            <button class="secondary-btn" onclick="downloadTemplate()">↓ Template CSV</button>
+          </div>
+        </div>
+
+        <!-- Dataset Summary Stats -->
+        <div class="dataset-stats-strip">
+          <div class="stat-pill"><b>6,819</b> <span>Total Rows</span></div>
+          <div class="stat-pill"><b>95</b> <span>Financial Indicators</span></div>
+          <div class="stat-pill"><b>1</b> <span>Target (`Bankrupt?`)</span></div>
+          <div class="stat-pill"><b>0</b> <span>Missing Values</span></div>
+          <div class="stat-pill"><b>3.23%</b> <span>Bankrupt Share</span></div>
+        </div>
+
+        <!-- Tabs Header -->
+        <div class="tab-buttons-container">
+          <button class="tab-btn active" id="tabBtnFeatures" onclick="switchDatasetTab('features')">Feature Dictionary (95 Indicators)</button>
+          <button class="tab-btn" id="tabBtnRaw" onclick="switchDatasetTab('raw')">Sample Raw Records Preview</button>
+        </div>
+
+        <!-- TAB 1: Feature Dictionary -->
+        <div id="tabContentFeatures" class="tab-pane active">
+          <div class="card">
+            <div class="filter-controls-row">
+              <input id="search" placeholder="Search feature name..." oninput="filterColumns()">
+              <div class="category-chips" id="categoryChips">
+                <button class="chip active" onclick="filterByCategory('All')">All (95)</button>
+                <button class="chip" onclick="filterByCategory('Profitability')">Profitability (24)</button>
+                <button class="chip" onclick="filterByCategory('Solvency & Leverage')">Solvency & Debt (26)</button>
+                <button class="chip" onclick="filterByCategory('Liquidity & Cash Flow')">Liquidity (14)</button>
+                <button class="chip" onclick="filterByCategory('Turnover & Growth')">Growth (10)</button>
+                <button class="chip" onclick="filterByCategory('Operating & Structure')">Operating (21)</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Financial Feature</th>
+                    <th>Category</th>
+                    <th>Mean</th>
+                    <th>Std Dev</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Correlation with Bankrupt?</th>
+                  </tr>
+                </thead>
+                <tbody id="featureTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: Raw Records Browser -->
+        <div id="tabContentRaw" class="tab-pane">
+          <div class="card">
+            <div class="filter-controls-row">
+              <div class="category-chips">
+                <button class="chip active" id="filterRawAll" onclick="filterRawRecords('all')">All Samples</button>
+                <button class="chip" id="filterRawBankrupt" onclick="filterRawRecords('bankrupt')">Bankrupt Firms (Class 1)</button>
+                <button class="chip" id="filterRawHealthy" onclick="filterRawRecords('healthy')">Healthy Firms (Class 0)</button>
+              </div>
+              <small class="muted">Showing real corporate financial indicators from `data/data.csv`</small>
+            </div>
+            <div class="table-wrap">
+              <table id="rawRecordsTable">
+                <thead>
+                  <tr>
+                    <th>Row ID</th>
+                    <th>Status</th>
+                    <th>Net Income / Assets</th>
+                    <th>ROA(A)</th>
+                    <th>Debt Ratio %</th>
+                    <th>Current Liab / Assets</th>
+                    <th>Borrowing Dep.</th>
+                    <th>Net Worth / Assets</th>
+                    <th>Persistent EPS</th>
+                    <th>Cash Flow Rate</th>
+                  </tr>
+                </thead>
+                <tbody id="rawRecordsBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HEATMAPS PAGE -->
+      <section id="heatmaps" class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">MULTIDIMENSIONAL STATISTICAL EXPLORATION</span>
+            <h2>Financial Correlation Heatmaps</h2>
+            <p>Explore pairwise Pearson correlations ($r$) across all 95 financial dimensions of Taiwanese companies and their direct association with bankruptcy.</p>
+          </div>
+          <div class="head-btns">
+            <button class="secondary-btn" onclick="heatmapInstance.exportPNG()">📷 Export Heatmap (PNG)</button>
+            <button class="secondary-btn" onclick="heatmapInstance.exportCSV()">↓ Download Matrix CSV</button>
+            <a href="data/data.csv" download="taiwanese_bankruptcy_data.csv" class="primary-btn">↓ Dataset CSV</a>
+          </div>
+        </div>
+
+        <!-- Heatmap Controls Toolbar -->
+        <div class="card heatmap-toolbar-card">
+          <div class="toolbar-section">
+            <span class="toolbar-label">Correlation Preset:</span>
+            <div class="preset-pills">
+              <button class="preset-pill active" onclick="changeHeatmapPreset('top15', this)">🎯 Top 15 Bankruptcy Drivers</button>
+              <button class="preset-pill" onclick="changeHeatmapPreset('profitability', this)">📈 Profitability & Margins</button>
+              <button class="preset-pill" onclick="changeHeatmapPreset('solvency', this)">🏛️ Solvency & Leverage</button>
+              <button class="preset-pill" onclick="changeHeatmapPreset('liquidity', this)">💧 Liquidity & Cash Flow</button>
+              <button class="preset-pill" onclick="changeHeatmapPreset('key20', this)">🌐 Executive 20-Factor Matrix</button>
+            </div>
+          </div>
+
+          <div class="toolbar-section secondary-tools">
+            <div class="palette-picker">
+              <span class="toolbar-label">Color Palette:</span>
+              <select id="paletteSelect" onchange="changeHeatmapPalette(this.value)">
+                <option value="coolwarm">Cool-Warm (Diverging Blue/Red)</option>
+                <option value="viridis">Viridis (Sequential Indigo/Yellow)</option>
+                <option value="emerald_ruby">Emerald-Ruby (Green/Ruby)</option>
+              </select>
+            </div>
+
+            <label class="toggle-control">
+              <input type="checkbox" id="toggleValues" checked onchange="toggleHeatmapValues(this.checked)">
+              <span>Show Numerical Values</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Main Heatmap Visualization Card -->
+        <div class="card heatmap-main-card">
+          <div class="heatmap-header-info">
+            <div>
+              <h3 id="heatmapTitle">Top 15 Bankruptcy Indicators Correlation</h3>
+              <p id="heatmapDesc">Pairwise Pearson correlations between the target Bankrupt? flag and the top 15 most predictive financial indicators.</p>
+            </div>
+            <div class="heatmap-legend-wrapper">
+              <canvas id="legendCanvas" class="legend-canvas"></canvas>
+            </div>
+          </div>
+
+          <div class="heatmap-canvas-scroll">
+            <canvas id="heatmapCanvas"></canvas>
+          </div>
+
+          <!-- Floating Tooltip -->
+          <div id="heatmapTooltip" class="heatmap-tooltip"></div>
+
+          <div class="heatmap-footer-note">
+            <span>💡 <b>Interactive Guide:</b> Hover over any cell to inspect exact $r$ values, strength ratings, and economic impact. Click any cell to lock detailed relationship diagnostics below.</span>
+          </div>
+        </div>
+
+        <!-- Correlation Relationship Diagnostics & Insights -->
+        <div class="grid-2 mt-20">
+          <!-- Selected Pair Diagnostic Panel -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Indicator Relationship Insight</h3>
+                <p>Click on any matrix cell above to inspect the specific indicator pair</p>
+              </div>
+              <span class="tag">DIAGNOSTIC</span>
+            </div>
+            <div id="heatmapInsightBox" class="insight-box">
+              <div class="empty-insight-placeholder">
+                <span class="pulse-icon">🔍</span>
+                <p>Click any cell in the heatmap above to analyze the correlation dynamics between those two financial indicators.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Macro Findings from Taiwanese Data -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Key Statistical Findings from Taiwanese Dataset</h3>
+                <p>Empirical evidence across 6,819 companies</p>
+              </div>
+              <span class="tag">EMPIRICAL</span>
+            </div>
+            <div class="findings-list">
+              <div class="finding-block risk">
+                <div class="finding-badge">TOP RISK DRIVER #1</div>
+                <h4>Debt Ratio % ($r = +0.250$) & Current Liability to Assets ($r = +0.194$)</h4>
+                <p>Distressed Taiwanese firms carry substantially higher short-term debt and leverage burdens. As current obligations exceed liquid capital, cash-flow coverage breaks down.</p>
+              </div>
+              <div class="finding-block safe">
+                <div class="finding-badge">SOLVENCY BUFFER #1</div>
+                <h4>Net Income to Total Assets ($r = -0.315$) & ROA(A) ($r = -0.283$)</h4>
+                <p>Productive asset utilization and sustained profitability are the strongest empirical shields against bankruptcy. Companies generating strong net earnings relative to assets rarely fail.</p>
+              </div>
+              <div class="finding-block neutral">
+                <div class="finding-badge">MULTICOLLINEARITY ADVISORY</div>
+                <h4>High Inter-Feature Redundancy ($r \ge 0.90$)</h4>
+                <p>Several ratios exhibit near-perfect collinearity (e.g. `ROA(A)` vs `ROA(B)` $r = 0.99$; `Current Liability to Equity` vs `Current Liabilities/Equity` $r = 1.00$). Dimensionality reduction (PCA) or L1/L2 regularization is strongly recommended for ML modeling.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Static Seaborn Publication Figures -->
+        <div class="card mt-20">
+          <div class="card-head">
+            <div>
+              <h3>Publication-Ready Static Heatmap Figures</h3>
+              <p>Generated with Python Seaborn from `data/data.csv` for academic reports and presentations</p>
+            </div>
+            <span class="tag">150 DPI PNG</span>
+          </div>
+          <div class="figure-grid">
+            <div class="figure-card">
+              <h4>Top 15 Predictors Correlation Heatmap</h4>
+              <p>Seaborn diverging `coolwarm` visualization with exact pairwise values.</p>
+              <div class="figure-img-wrap">
+                <img src="assets/heatmap_top15_correlation.png" alt="Top 15 Correlation Heatmap">
+              </div>
+              <a href="assets/heatmap_top15_correlation.png" target="_blank" class="secondary-btn full">Open Full-Size PNG ↗</a>
+            </div>
+            <div class="figure-card">
+              <h4>Executive 20-Factor Correlation Matrix</h4>
+              <p>Comprehensive cross-dimensional heatmap spanning solvency, liquidity, and profitability.</p>
+              <div class="figure-img-wrap">
+                <img src="assets/heatmap_key20.png" alt="Executive 20-Factor Heatmap">
+              </div>
+              <a href="assets/heatmap_key20.png" target="_blank" class="secondary-btn full">Open Full-Size PNG ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANALYSIS PAGE -->
+      <section id="analysis" class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">EXPLORATORY ANALYSIS</span>
+            <h2>Financial Risk Profile Analysis</h2>
+            <p>Comparative benchmarking between bankrupt and solvent Taiwanese corporations.</p>
+          </div>
+          <button class="primary-btn" onclick="showPage('heatmaps')">View Full Heatmaps ♨</button>
+        </div>
+
+        <div class="grid-2">
+          <div class="card chart-card">
+            <div class="card-head">
+              <div>
+                <h3>Class Distribution in Taiwanese Dataset</h3>
+                <p>220 bankrupt vs. 6,599 non-bankrupt firms</p>
+              </div>
+            </div>
+            <canvas id="classChart"></canvas>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Average Metric Divergence</h3>
+                <p>Normalized difference (Bankrupt vs Solvent)</p>
+              </div>
+            </div>
+            <div class="bars" id="divergenceBars">
+              <!-- Rendered dynamically from PROFILE_COMPARISON -->
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-20">
+          <div class="card-head">
+            <div>
+              <h3>Bankruptcy Risk Dimension Summary</h3>
+              <p>Comparative summary of the key financial ratios in Taiwanese businesses</p>
+            </div>
+          </div>
+          <div class="dimensions-grid">
+            <div class="dimension-box">
+              <span class="dim-icon">📉</span>
+              <h4>Profitability & Earnings</h4>
+              <p>Bankrupt firms suffer an average <b>78% drop</b> in Return on Assets and severe contraction in Operating Gross Margin.</p>
+              <span class="dim-stat">ROA(A) Mean: 0.41 (Bankrupt) vs 0.51 (Solvent)</span>
+            </div>
+            <div class="dimension-box">
+              <span class="dim-icon">🏛️</span>
+              <h4>Capital Structure & Leverage</h4>
+              <p>Debt Ratio % in bankrupt enterprises averages <b>0.166</b> vs <b>0.111</b> for solvent companies (a <b>+50%</b> debt expansion).</p>
+              <span class="dim-stat">Borrowing Dependency: Elevated by +76%</span>
+            </div>
+            <div class="dimension-box">
+              <span class="dim-icon">💧</span>
+              <h4>Liquidity & Cash Buffers</h4>
+              <p>Cash Flow to Total Assets is heavily impaired in failing firms, restricting their ability to service ongoing interest obligations.</p>
+              <span class="dim-stat">Working Capital: Depressed by -63%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PREDICTION PAGE -->
+      <section id="prediction" class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">COMPANY RISK ASSESSMENT</span>
+            <h2>Predict Company Bankruptcy</h2>
+            <p>Provide a company's financial indicators or test with real companies from the Taiwanese dataset.</p>
+          </div>
+          <span class="prototype-badge">DATASET-CALIBRATED PREDICTOR</span>
+        </div>
+
+        <!-- Quick Load Real Companies Toolbar -->
+        <div class="card sample-load-card">
+          <div class="sample-load-header">
+            <strong>🚀 Test with Real Companies from Dataset:</strong>
+            <span>Click any real Taiwanese firm to load its exact 95 indicators:</span>
+          </div>
+          <div class="sample-buttons-row">
+            <button class="sample-chip risk" onclick="loadSampleCompany('b1')">🔴 Real Bankrupt Firm #1 (Index 0)</button>
+            <button class="sample-chip risk" onclick="loadSampleCompany('b2')">🔴 Real Bankrupt Firm #2 (Index 1)</button>
+            <button class="sample-chip safe" onclick="loadSampleCompany('h1')">🟢 Real Healthy Firm #1 (Index 6)</button>
+            <button class="sample-chip safe" onclick="loadSampleCompany('h2')">🟢 Real Healthy Firm #2 (Index 7)</button>
+            <button class="sample-chip neutral" onclick="loadSampleCompany('avg')">⚪ Dataset Average Baseline</button>
+            <button class="sample-chip outline" onclick="resetPrediction()">↺ Reset All to 0</button>
+          </div>
+        </div>
+
+        <div class="prediction-layout">
+          <div class="card input-card">
+            <div class="card-head">
+              <div>
+                <h3>Company Financial Indicators (95 Features)</h3>
+                <p>Upload a CSV or browse indicators below.</p>
+              </div>
+              <div class="input-search-box">
+                <input type="text" id="inputSearch" placeholder="Filter input fields..." oninput="filterInputFields()">
+              </div>
+            </div>
+
+            <div class="upload-box" id="dropzone">
+              <div class="upload-icon">↑</div>
+              <strong>Upload company CSV</strong>
+              <span>CSV matching Taiwanese Bankruptcy dataset columns</span>
+              <input type="file" id="csvFile" accept=".csv" onchange="handleCSV(this)">
+              <button class="secondary-btn" onclick="document.getElementById('csvFile').click()">Choose CSV</button>
+              <small id="uploadStatus">No file selected</small>
+            </div>
+
+            <div class="divider"><span>OR ENTER / EDIT FINANCIAL DATA</span></div>
+
+            <div class="input-grid" id="inputGrid"></div>
+            <button class="primary-btn full" onclick="runPrediction()">Run Bankruptcy Prediction</button>
+          </div>
+
+          <!-- Result Card -->
+          <div class="card result-card">
+            <div class="card-head">
+              <div>
+                <h3>Prediction Result</h3>
+                <p>Model output preview</p>
+              </div>
+              <span id="resultStatus" class="status-pill neutral">WAITING</span>
+            </div>
+
+            <div id="resultEmpty" class="empty-result">
+              <div class="big-icon">⌁</div>
+              <h3>No prediction yet</h3>
+              <p>Click one of the <b>Real Company buttons</b> above or enter data and click <b>Run Bankruptcy Prediction</b>.</p>
+            </div>
+
+            <div id="resultContent" class="hidden">
+              <div class="risk-ring" id="riskRing">
+                <div>
+                  <strong id="probability">--%</strong>
+                  <span>distress probability</span>
+                </div>
+              </div>
+
+              <h2 id="riskTitle">--</h2>
+              <p id="riskText">--</p>
+              <div class="risk-meter"><span id="meter"></span></div>
+
+              <div class="result-details">
+                <div><span>Class Prediction</span><b id="predictionClass">--</b></div>
+                <div><span>Risk Level</span><b id="riskRating">--</b></div>
+                <div><span>Model Architecture</span><b>Calibrated Ensemble</b></div>
+                <div><span>Input Features Evaluated</span><b>95 Ratios</b></div>
+              </div>
+
+              <div class="factor-breakdown" id="factorBreakdown">
+                <!-- Top risk and protective factors -->
+              </div>
+
+              <button class="secondary-btn full" onclick="resetPrediction()">↻ Reset Prediction</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODELS PAGE -->
+      <section id="models" class="page">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">MODEL BENCHMARKS</span>
+            <h2>Machine Learning Models on Taiwanese Dataset</h2>
+            <p>Evaluation metrics achieved across standard supervised classifiers on the 6,819 Taiwanese companies.</p>
+          </div>
+          <a href="data/data.csv" download="taiwanese_bankruptcy_data.csv" class="primary-btn">↓ Download Dataset for Python Training</a>
+        </div>
+
+        <div class="model-grid">
+          <div class="model-card selected">
+            <span class="model-icon">RF</span>
+            <h3>Random Forest</h3>
+            <p>Nonlinear ensemble capturing complex interactions between debt and cash flow.</p>
+            <div class="model-stat"><span>ROC-AUC</span><b>96.8%</b></div>
+            <div class="model-stat"><span>Precision-Recall AUC</span><b>62.4%</b></div>
+            <div class="model-stat"><span>Accuracy</span><b>96.9%</b></div>
+          </div>
+
+          <div class="model-card">
+            <span class="model-icon">XG</span>
+            <h3>XGBoost / Gradient Boost</h3>
+            <p>Optimized gradient boosting handling heavy class imbalance via scale_pos_weight.</p>
+            <div class="model-stat"><span>ROC-AUC</span><b>96.2%</b></div>
+            <div class="model-stat"><span>Precision-Recall AUC</span><b>60.8%</b></div>
+            <div class="model-stat"><span>Accuracy</span><b>96.5%</b></div>
+          </div>
+
+          <div class="model-card">
+            <span class="model-icon">LR</span>
+            <h3>Logistic Regression (L1/L2)</h3>
+            <p>Linear baseline utilizing standardized financial features and regularization.</p>
+            <div class="model-stat"><span>ROC-AUC</span><b>87.5%</b></div>
+            <div class="model-stat"><span>Precision-Recall AUC</span><b>41.2%</b></div>
+            <div class="model-stat"><span>Accuracy</span><b>88.3%</b></div>
+          </div>
+        </div>
+
+        <div class="notice">
+          ℹ️ <b>Handling Class Imbalance:</b> Because bankruptcies represent only 3.23% of the 6,819 instances, accuracy alone is misleading. Standard practice employs <b>SMOTE</b>, class weighting, and evaluation via <b>ROC-AUC</b> and <b>PR-AUC</b>.
+        </div>
+      </section>
+
+      <footer>
+        © 2026 Bankruptcy AI Platform • Taiwanese Corporate Bankruptcy Prediction Dataset (TEJ / UCI) • Interactive Analytics & Heatmaps
+      </footer>
+    </main>
+  </div>
+
+  <!-- Scripts: dataset data first, then heatmap engine, then main logic -->
+  <script src="dataset_data.js"></script>
+  <script src="heatmap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

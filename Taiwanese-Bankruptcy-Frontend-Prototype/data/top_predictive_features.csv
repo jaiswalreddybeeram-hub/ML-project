@@ -1,0 +1,96 @@
+Index,Feature,Category,Mean,Std,Min,Median,Max,Correlation_with_Bankruptcy
+86,Net Income to Total Assets,Profitability,0.80776,0.040332,0.0,0.810619,1.0,-0.315457
+2,ROA(A) before interest and % after tax,Profitability,0.558625,0.06562,0.0,0.559802,1.0,-0.282941
+3,ROA(B) before interest and depreciation after tax,Profitability,0.553589,0.061595,0.0,0.552278,1.0,-0.273051
+1,ROA(C) before interest and depreciation before interest,Profitability,0.50518,0.060686,0.0,0.502706,1.0,-0.260807
+37,Debt ratio %,Solvency & Leverage,0.113177,0.05392,0.0,0.111407,1.0,0.250161
+38,Net worth/Assets,Solvency & Leverage,0.886823,0.05392,0.0,0.888593,1.0,-0.250161
+19,Persistent EPS in the Last Four Seasons,Profitability,0.228813,0.033263,0.0,0.224544,1.0,-0.21956
+68,Retained Earnings to Total Assets,Profitability,0.934733,0.025564,0.0,0.937672,1.0,-0.217779
+43,Net profit before tax/Paid-in capital,Profitability,0.182715,0.030785,0.0,0.178456,1.0,-0.207857
+23,Per Share Net profit before tax (Yuan ¥),Profitability,0.184361,0.03318,0.0,0.179709,1.0,-0.201395
+60,Current Liability to Assets,Solvency & Leverage,0.090673,0.05029,0.0,0.082705,1.0,0.194494
+54,Working Capital to Total Assets,Liquidity & Cash Flow,0.814125,0.059054,0.0,0.810275,1.0,-0.193083
+90,Net Income to Stockholder's Equity,Profitability,0.840402,0.014523,0.0,0.841179,1.0,-0.180987
+40,Borrowing dependency,Solvency & Leverage,0.374654,0.016286,0.0,0.372624,1.0,0.176543
+84,Current Liability to Current Assets,Solvency & Leverage,0.031506,0.030845,0.0,0.027597,1.0,0.171306
+91,Liability to Equity,Solvency & Leverage,0.280365,0.014463,0.0,0.278778,1.0,0.166812
+17,Net Value Per Share (A),Operating & Structure,0.190633,0.033474,0.0,0.1844,1.0,-0.165465
+16,Net Value Per Share (B),Operating & Structure,0.190661,0.03339,0.0,0.1844,1.0,-0.165399
+18,Net Value Per Share (C),Operating & Structure,0.190672,0.03348,0.0,0.1844,1.0,-0.164784
+66,Current Liabilities/Equity,Solvency & Leverage,0.33141,0.013488,0.0,0.329685,1.0,0.153828
+78,Current Liability to Equity,Solvency & Leverage,0.33141,0.013488,0.0,0.329685,1.0,0.153828
+65,Working Capital/Equity,Solvency & Leverage,0.735817,0.011678,0.0,0.736013,1.0,-0.147221
+22,Operating Profit Per Share (Yuan ¥),Profitability,0.109091,0.027942,0.0,0.104226,1.0,-0.142051
+42,Operating profit/Paid-in capital,Profitability,0.108977,0.027782,0.0,0.104133,1.0,-0.141111
+85,Liability-Assets Flag,Solvency & Leverage,0.001173,0.034234,0.0,0.0,1.0,0.139212
+70,Total expense/Assets,Operating & Structure,0.029184,0.027149,0.0,0.022674,1.0,0.139049
+79,Equity to Long-term Liability,Solvency & Leverage,0.115645,0.019529,0.0,0.11234,1.0,0.139014
+82,CFO to Assets,Liquidity & Cash Flow,0.593415,0.058561,0.0,0.593266,1.0,-0.115383
+15,Tax rate (A),Operating & Structure,0.115001,0.138667,0.0,0.073489,1.0,-0.109706
+57,Cash/Total Assets,Liquidity & Cash Flow,0.124095,0.139251,0.0,0.074887,1.0,-0.10013
+89,Gross Profit to Sales,Profitability,0.607946,0.016934,0.0,0.605998,1.0,-0.100044
+4,Operating Gross Margin,Profitability,0.607948,0.016934,0.0,0.605997,1.0,-0.100043
+5,Realized Sales Gross Margin,Profitability,0.607929,0.016916,0.0,0.605976,1.0,-0.099445
+52,Operating profit per person,Profitability,0.400671,0.03272,0.0,0.395898,1.0,-0.092842
+55,Quick Assets/Total Assets,Liquidity & Cash Flow,0.400132,0.201998,0.0,0.386451,1.0,-0.086382
+95,Equity to Liability,Solvency & Leverage,0.047578,0.050014,0.0,0.033798,1.0,-0.083048
+59,Cash/Current Liability,Solvency & Leverage,37159994.147133,510350903.162731,0.0,0.004904,9650000000.0,0.077921
+20,Cash Flow Per Share,Liquidity & Cash Flow,0.323482,0.017611,0.0,0.322487,1.0,-0.077516
+61,Operating Funds to Liability,Solvency & Leverage,0.353828,0.035147,0.0,0.348597,1.0,-0.077082
+44,Inventory and accounts receivable/Net value,Operating & Structure,0.402459,0.013324,0.0,0.400131,1.0,0.075278
+49,Fixed Assets Turnover Frequency,Turnover & Growth,1008595981.817516,2477557316.920152,0.0,0.000593,9990000000.0,0.072818
+13,Cash flow rate,Liquidity & Cash Flow,0.467431,0.017036,0.0,0.46508,1.0,-0.072356
+80,Cash Flow to Total Assets,Liquidity & Cash Flow,0.649731,0.047372,0.0,0.645366,1.0,-0.070456
+41,Contingent liabilities/Net worth,Solvency & Leverage,0.005968,0.012188,0.0,0.005366,1.0,0.070455
+45,Total Asset Turnover,Turnover & Growth,0.141606,0.101145,0.0,0.118441,1.0,-0.067915
+76,Fixed Assets to Assets,Operating & Structure,1220120.50159,100754158.713168,0.0,0.196881,8320000000.0,0.066328
+30,Net Value Growth Rate,Turnover & Growth,1566212.055241,114159389.518345,0.0,0.000462,9330000000.0,0.065329
+83,Cash Flow to Equity,Solvency & Leverage,0.315582,0.012961,0.0,0.314953,1.0,-0.058563
+32,Cash Reinvestment %,Liquidity & Cash Flow,0.379677,0.020737,0.0,0.380425,1.0,-0.051345
+56,Current Assets/Total Assets,Operating & Structure,0.522273,0.218112,0.0,0.51483,1.0,-0.044823
+29,Total Asset Growth Rate,Turnover & Growth,5508096595.248749,2897717771.169704,0.0,6400000000.0,9990000000.0,-0.044431
+81,Cash Flow to Liability,Solvency & Leverage,0.461849,0.029943,0.0,0.45975,1.0,-0.043125
+51,Revenue per person,Operating & Structure,2325854.266358,136632654.389936,0.0,0.018616,8810000000.0,0.039718
+26,After-tax Net Profit Growth Rate,Profitability,0.689146,0.013853,0.0,0.689439,1.0,-0.037783
+27,Regular Net Profit Growth Rate,Profitability,0.68915,0.01391,0.0,0.689439,1.0,-0.03682
+87,Total assets to GNP price,Operating & Structure,18629417.811836,376450059.745822,0.0,0.002085,9820000000.0,0.035104
+72,Quick Asset Turnover Rate,Liquidity & Cash Flow,2163735272.034426,3374944402.166023,0.0,0.000225,10000000000.0,0.025814
+34,Quick Ratio,Liquidity & Cash Flow,8376594.819685,244684748.446872,0.0,0.007412,9230000000.0,0.025058
+12,Research and development expense rate,Operating & Structure,1950427306.05683,2598291553.99832,0.0,509000000.0,9980000000.0,-0.024232
+14,Interest-bearing debt interest rate,Solvency & Leverage,16448012.905943,108275033.532824,0.0,0.000321,990000000.0,-0.023063
+50,Net Worth Turnover Rate (times),Solvency & Leverage,0.038595,0.03668,0.0,0.029516,1.0,0.021089
+64,Current Liabilities/Liability,Solvency & Leverage,0.761599,0.206677,0.0,0.806881,1.0,-0.020809
+77,Current Liability to Liability,Solvency & Leverage,0.761599,0.206677,0.0,0.806881,1.0,-0.020809
+74,Cash Turnover Rate,Liquidity & Cash Flow,2471976967.444318,2938623226.678844,0.0,1080000000.0,10000000000.0,-0.018035
+39,Long-term fund suitability ratio (A),Operating & Structure,0.008783,0.028153,0.0,0.005665,1.0,0.01692
+31,Total Asset Return Growth Rate Ratio,Turnover & Growth,0.264248,0.009634,0.0,0.26405,1.0,-0.016858
+9,Non-industry income and expenditure/revenue,Profitability,0.303623,0.011163,0.0,0.303525,1.0,-0.016593
+25,Operating Profit Growth Rate,Profitability,0.84798,0.010752,0.0,0.848044,1.0,-0.015168
+36,Total debt/Total net worth,Solvency & Leverage,4416336.714259,168406905.281511,0.0,0.005546,9940000000.0,0.012314
+71,Current Asset Turnover Rate,Turnover & Growth,1195855763.308936,2821161238.262308,0.0,0.000199,10000000000.0,0.011929
+92,Degree of Financial Leverage (DFL),Solvency & Leverage,0.027541,0.015668,0.0,0.026808,1.0,0.010508
+28,Continuous Net Profit Growth Rate,Profitability,0.217639,0.010063,0.0,0.217598,1.0,-0.009401
+8,After-tax net Interest Rate,Operating & Structure,0.809084,0.013601,0.0,0.809375,1.0,-0.008857
+7,Pre-tax net Interest Rate,Operating & Structure,0.79719,0.012869,0.0,0.797464,1.0,-0.008517
+10,Continuous interest rate (after tax),Operating & Structure,0.781381,0.012679,0.0,0.781635,1.0,-0.008395
+69,Total income/Total expense,Profitability,0.002549,0.012093,0.0,0.002336,1.0,-0.007137
+47,Average Collection Days,Turnover & Growth,9826220.861192,256358895.705332,0.0,0.006573,9730000000.0,-0.006556
+11,Operating Expense Rate,Operating & Structure,1995347312.802885,3237683890.522384,0.0,0.000278,9990000000.0,-0.006083
+88,No-credit Interval,Operating & Structure,0.623915,0.01229,0.0,0.623879,1.0,-0.005547
+93,Interest Coverage Ratio (Interest expense to EBIT),Operating & Structure,0.565358,0.013214,0.0,0.565252,1.0,-0.005509
+46,Accounts Receivable Turnover,Turnover & Growth,12789705.237554,278259836.984067,0.0,0.000968,9740000000.0,-0.004754
+21,Revenue Per Share (Yuan ¥),Operating & Structure,1328640.602096,51707089.767907,0.0,0.027376,3020000000.0,-0.004692
+58,Quick Assets/Current Liability,Solvency & Leverage,3592902.19683,171620908.606822,0.0,0.007909,8820000000.0,-0.003823
+73,Working capitcal Turnover Rate,Turnover & Growth,0.594006,0.008959,0.0,0.593963,1.0,-0.002894
+53,Allocation rate per person,Operating & Structure,11255785.321742,294506294.116771,0.0,0.007844,9570000000.0,0.002829
+35,Interest Expense Ratio,Operating & Structure,0.630991,0.011238,0.0,0.630698,1.0,-0.002681
+33,Current Ratio,Liquidity & Cash Flow,403284.954245,33302155.82548,0.0,0.010587,2750000000.0,-0.002211
+62,Inventory/Working Capital,Liquidity & Cash Flow,0.277395,0.010469,0.0,0.277178,1.0,-0.001906
+48,Inventory Turnover Rate (times),Turnover & Growth,2149106056.607619,3247967014.047812,0.0,0.000765,9990000000.0,-0.001376
+63,Inventory/Current Liability,Solvency & Leverage,55806804.52578,582051554.619419,0.0,0.006497,9910000000.0,0.000822
+67,Long-term Liability to Current Assets,Solvency & Leverage,54160038.135894,570270621.95921,0.0,0.001975,9540000000.0,0.000778
+75,Cash Flow to Sales,Liquidity & Cash Flow,0.671531,0.009341,0.0,0.671574,1.0,0.000479
+24,Realized Sales Gross Profit Growth Rate,Profitability,0.022408,0.012079,0.0,0.022102,1.0,-0.000458
+6,Operating Profit Rate,Profitability,0.998755,0.01301,0.0,0.999022,1.0,-0.00023
+94,Net Income Flag,Profitability,1.0,0.0,1.0,1.0,1.0,
